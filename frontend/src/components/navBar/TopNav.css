@@ -1,0 +1,54 @@
+#navItem{
+  color: #F0DA98;
+
+  background-color: black;
+} 
+
+
+Nav.Link{
+    text-decoration: none;
+}
+
+#brandName{
+    padding-left: 85px;
+    color:  #F0DA98;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#myLink{
+    color:  #F0DA98;
+}
+
+.brandCart{
+    display: flex;
+    
+}
+
+#brandCart2{
+    color:  #F0DA98;
+    padding-right: 15px;
+    padding-top: 15px;
+    align-items: center;
+    font-size: 35px;
+}
+
+#user{
+    color: #F0DA98;
+    padding-right: 24px;
+    padding-top: 15px;
+    font-size: 35px;
+}
+#size{
+    color: #F0DA98;
+    position: relative;
+    right: 12px;
+}
+  /* #navItem{
+    position: fixed;
+    width: 100%;
+ }  */
+
+/* #navitem{
+position: fixed;
+width: 100px;
+} */

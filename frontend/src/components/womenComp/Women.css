@@ -1,0 +1,47 @@
+#ladiesWatch{
+    width: 267px;
+    height: 347px;
+    border-radius: 10px;
+}
+
+.ladiesCard{
+    padding: 38px 0;
+    padding-left: 17px;
+    background-color: black;
+    color:  #F0DA98;
+    /* display: flex; */
+}
+
+/* .ladiesCard1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+} */
+
+.ladiesImg{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+
+.actionBtn{
+    display: flex;
+    position: relative;
+    bottom: 25px;
+    padding-left: 260px;
+    /* border-radius: 10px; */
+    /* justify-content: space-between; */
+    /* padding-left: 15px; */
+}
+
+
+
+.bTn{
+    background-color: gray;
+    border: none;
+    border-radius: 6px;
+    height: 24px;
+    width: 24px;
+    font-size: 13px;
+    color: #fff;
+}
+

@@ -1,0 +1,22 @@
+.searchCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: #f0da98;
+    /* padding: 38px 0; */
+}
+
+img{
+    border-radius: 10px;
+    width: 267px;
+    height: 347px;
+}
+
+p{
+    color: #f0da98;
+}
+
+
+
+#priceColor{
+    color: #f0da98;
+}

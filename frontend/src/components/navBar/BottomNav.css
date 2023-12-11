@@ -1,0 +1,13 @@
+#navItem3{
+    background-color:  #F0DA98;
+    font-size: 18px;
+    /* position: fixed; */
+    /* width: 100%; */
+}
+
+.icon {
+    font-size: 24px;
+    margin: 20px;
+    cursor: pointer;
+  }
+  

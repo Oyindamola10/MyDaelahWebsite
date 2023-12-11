@@ -1,0 +1,30 @@
+
+
+/* Styles for small screens (e.g., smartphones) */
+@media only screen and (max-width: 600px) {
+    /* Your styles for small screens */
+  }
+  
+  /* Styles for medium screens (e.g., tablets) */
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Your styles for medium screens */
+  }
+  
+  /* Styles for large screens (e.g., desktops) */
+  @media only screen and (min-width: 1025px) {
+    /* Your styles for large screens */
+  }
+  
+.warning{
+  height: 40px;
+  width: 250px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  background-color: #F0DA98;
+  font-size: 1.1rem;
+  color: white;
+  font-family: cursive;
+  padding: 5px;
+  border-radius: 5px;
+}

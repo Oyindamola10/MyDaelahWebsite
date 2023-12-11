@@ -1,0 +1,19 @@
+img{
+    width: 457px;
+    height: 357px;
+}
+
+p{
+    color:  #F0DA98;
+}
+h5{
+    color:  #F0DA98;
+}
+
+#Btn{
+    background-color:  #F0DA98;
+    border: none;
+    position: relative;
+    bottom: 45px;
+    left:20px;
+}

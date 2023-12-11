@@ -1,0 +1,41 @@
+.AboutDaelah{
+    /* justify-content: center; */
+    text-align: center;
+    margin-top: 55px;
+}
+
+p{
+    color: #a3a3a3;
+}
+
+.AboutDaelah2{
+    background-color: black;
+    /* height: 100vh; */
+    padding: 105px 0;
+    
+}
+
+a{
+    text-decoration: none;
+    color: #ffff;
+    padding-bottom: 15px;
+
+
+}
+hr{
+    color: #F0DA98;
+}
+
+#Btn3{
+    color:  #F0DA98;
+    font-size: 35px;
+    margin: 5px;
+}
+
+#myFooter{
+    color: #F0DA98;
+    text-align: center;
+}
+#social{
+    color: gray;
+}

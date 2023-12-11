@@ -1,0 +1,23 @@
+
+#img2{
+    width: 267px;
+    height: 347px;
+    border-radius: 10px;
+}
+.menCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+
+}
+
+.cardMen{
+    padding: 45px 0;
+    padding-left: 30px;
+    background-color: black;
+    color:  #F0DA98;
+}
+
+button{
+    font-size: 15px;
+}

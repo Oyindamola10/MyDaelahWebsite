@@ -1,0 +1,32 @@
+
+
+#productsId{
+    width: 267px;
+    height: 347px;
+    /* padding-left: 10px; */
+    border-radius: 10px;
+}
+
+.productlistCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    text-align: center;
+}
+.productlistCard:hover{
+    box-shadow: 0 10px 10px 10px rgb(0,0,0,0);
+    cursor: pointer;
+}
+.productCard{
+    padding: 45px 0;
+    padding-left: 30px;
+}
+
+button:hover{
+    background-color:  #F0DA98;
+    border-radius: none;
+}
+button{
+    font-size: 28px;
+    border-radius: 5px;
+}

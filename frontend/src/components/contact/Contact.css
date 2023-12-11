@@ -1,0 +1,58 @@
+.myIcons{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    width: 190px;
+    color:  #F0DA98;
+}
+#myIcon{
+    font-size: 25px;
+    padding-bottom: 12px;
+
+}
+
+p{
+    padding-right:10px;
+    color: black;
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+#contact-p{
+    padding-right: 30px;
+}
+
+#form-title{
+    font-size: 14px;
+    padding-top: 35px;
+    padding-left: 25px;
+    color: gray;
+}
+
+.spaceFile{
+    width: 157px;
+    
+}
+
+.btn-submit{
+    padding-left: 589px;
+    /* width: 257px; */
+    height: 157px;
+}
+
+#btnSub{
+    width: 145px;
+    height: 48px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    margin-left: 15px;
+}

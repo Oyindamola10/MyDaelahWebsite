@@ -1,0 +1,73 @@
+#sidebarbtn{
+    border: none;
+    margin-left: 10px;
+    background-color: black;
+    color:  #F0DA98;
+}
+
+.sidebar.open {
+    width:50px; 
+  }
+
+  .sidebar {
+    width: 305px !important;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f0da98;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    /* align-items: center; */
+  }
+
+  .sidebar-title2{
+    display: flex;
+    flex-direction: column;
+
+  }
+  .sidebar-title{
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px;
+
+  }
+
+  .sidebar-items{
+    margin-top: 20px;
+  }
+  .sidebar-label-container{
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    -webkit-user-select: none;
+    -moz-user-select:none ;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .sidebar-label-input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .checkmark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #F0DA98;
+    border-radius: 50%;
+  }
+
+  .sidebar-label-container:hover input~.checkmark{
+    background-color: black;
+  }
+  .sidebar-label-container:input:checked~.checkmark{
+    background-color: #2196f3;
+  }
