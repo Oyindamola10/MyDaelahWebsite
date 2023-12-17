@@ -3,11 +3,16 @@ import './ProductCard.css'
 
 import './ProductCard.css'
 import { useAppContext } from '../../context/AppContext';
+import addProductToCart from './addProductToCart';
 
 const ProductCard = ({ item, }) => {
   const { name, price, image } = item;
   const { incrCart } = useAppContext();
-
+ 
+  const handleAddToCart = () => {
+    incrCart();
+    addProductToCart(item);
+  }
   return (
     <>
       <div>
@@ -25,7 +30,7 @@ const ProductCard = ({ item, }) => {
           </div>
           <div>
             <button className="womenBtn"
-              onClick={() => incrCart()}>Add to cart</button>
+              onClick={() => handleAddToCart()}>Add to cart</button>
 
 
           </div>

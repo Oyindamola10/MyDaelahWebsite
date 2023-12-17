@@ -1,23 +1,28 @@
 import React from 'react'
 import  { useState, useEffect } from 'react';
 // import { useParams } from 'react-router-dom';
-import axios from 'axios'
 
 import './ShoppingCart.css'
 
   const ShoppingCart = ({}) => {
     const [cartItems, setCartItem] = useState(null);
     
+    // fetch cart items
+    const fetchCartItems = () => {
+        const requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+          };
+          
+          fetch("http://localhost:8088/api/cart", requestOptions)
+            .then(response => response.json())
+            .then(result => setCartItem(result))
+            .catch(error => console.log('error', error));
+    }
 
     useEffect(() => {
-        const getData = async () => {
-            const response = await axios.get("http://localhost:8088/api/cart/");
-
-            setCartItem(response.data.postData);
-        }
-
-        getData();
-    })
+       fetchCartItems();
+    }, []);
   
 
 
@@ -32,7 +37,7 @@ import './ShoppingCart.css'
             <hr />
             <div>
             {
-                cartItems?.length ? (
+                cartItems ? (
                     <div className>
                         {cartItems.map(item => (
                             <div style={{ color: 'white', background: 'black' }}>
