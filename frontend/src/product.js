@@ -258,7 +258,7 @@ const product = [
       {
         id:40,
         image: "https://i.imgur.com/KIYAxB5.jpg",
-        name:" Ladies Watch Set",
+        name:"Ladies Watch Set",
         Price: "NGN25000"
       },
       {
