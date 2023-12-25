@@ -106,6 +106,18 @@ const deleteProduct = asyncHandler(async (req, res) => {
         res.status(500).json({ error: "Error deleting product" })
     }
 });
+const deleteCart = asyncHandler(async (req, res) => {
+    try {
+        //find product
+        const cart = await Cart.findById(req.params.id);
+        //delete product
+        await Cart.deleteOne({ _id: cart._id });
+
+        res.status(200).json({ message: "Cart deleted successfully" });
+    } catch (error) {
+        res.status(500).json({ error: "Error deleting cart" })
+    }
+});
 
 //@desc fetches a specific product by id
 //@method GET
@@ -154,4 +166,4 @@ const getCart = asyncHandler(async (req, res) => {
     res.status(200).json(cart);
 });
 
-module.exports = { createProduct, getProducts, updateProduct, deleteProduct, searchProduct ,addMutiples, createCart,getCart }
+module.exports = { createProduct, getProducts, updateProduct, deleteProduct, searchProduct ,addMutiples, createCart,getCart,deleteCart }
