@@ -56,7 +56,6 @@ const TopNavBar = ({ setShow }) => {
       </Navbar> */}
 
         {/* navbar here -- desktop  */}
-
         <div className={classes.navParent}>
           <nav className={`${classes.desktop}`}>
             <div>
@@ -92,6 +91,7 @@ const TopNavBar = ({ setShow }) => {
               <span id="size">{size}</span>
             </div>
           </nav>
+          
           {/* navbar here -- mobile  */}
           <nav className={`${classes.mobile}`}>
             <div onClick={()=> setShowMobileMenu(true)}>

@@ -1,6 +1,6 @@
 import React from "react";
 // import { useState } from 'react';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 // import SideBar from './components/sidebar/SideBar';
 import TopNavBar from "./components/navBar/TopNavBar";
 import BottomNavBar from "./components/navBar/BottomNavBar";
@@ -19,7 +19,8 @@ import Contact from "./components/contact/Contact";
 import { useState } from "react";
 import Search from "./page/Search";
 import { useAppContext } from "./context/AppContext";
-import classes from "../src/components/navBar/topNav.module.css"
+import classes from "../src/components/navBar/topNav.module.css";
+import { XMArkIcon } from "./assets/GlobalIcons";
 
 const App = () => {
   const [show, setShow] = useState(true);
@@ -55,14 +56,13 @@ const App = () => {
 
   const { cartNo: size, showMobileMenu, setShowMobileMenu } = useAppContext();
 
-
-
   return (
-
     <>
-      <div style={{
-        overflow: showMobileMenu ? "hidden" : "auto"
-      }}> 
+      <div
+        style={{
+          overflow: showMobileMenu ? "hidden" : "auto",
+        }}
+      >
         <header>
           <TopNavBar size={cart.length} setShow={setShow}></TopNavBar>
           <BottomNavBar></BottomNavBar>
@@ -138,14 +138,36 @@ const App = () => {
           </div>
         </footer>
 
-         {showMobileMenu && (
-        <div className={`${classes.modalParent}`}>
-          <div>modal</div>
-        </div>
-      )}
-      </div>
+        {/* mobile menu here */}
+        {showMobileMenu && (
+          <div className={`${classes.modalParent}`}>
+            <div className={classes.modalBody}>
+              <div>
+                <h2>DAELAHCOLLECTIBLES</h2>
+                <div onClick={()=> setShowMobileMenu(false)}>
+                  <XMArkIcon />
+                </div>
+              </div>
 
-     
+              <nav>
+                <Link to="/" id="myLink">
+                  Home
+                </Link>
+                <Link to="/about" id="myLink">
+                  About Us
+                </Link>
+                {/* <Link to="/SignUp" id='myLink'>My Account</Link> */}
+                <Link to="/contact" id="myLink">
+                  Contact Us
+                </Link>
+                <Link to="/blog" id="myLink">
+                  Blog
+                </Link>
+              </nav>
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 };

@@ -19,20 +19,25 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .navParent > nav {
+  .navParent > nav.desktop {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     align-items: baseline;
+    max-width: 1600px;
+    
   }
 
-  .navParent > nav.mobile {
-  }
   .navParent > nav.mobile {
     display: none;
   }
 }
+
+@media screen and (min-width: 1440px) {
+    .navParent > nav.desktop {
+        width: 85%;
+    }}
 
 .navParent > nav > h2 {
   font-weight: 700;
@@ -40,19 +45,42 @@
 }
 
 .modalParent {
-    position: fixed; 
-    top: 0;
-    inset: 0px;
-    background-color: #0A2E6566;
+  position: fixed;
+  top: 0;
+  inset: 0px;
+  background-color: #0a2e6566;
   z-index: 10;
   width: 100vw;
   height: 100vh;
+  transition: linear 1s all;
 }
 
-.modalParent > div{
-    width: 80vw;
-    background-color: black;
-    z-index: 30;
-    height: 100%;
+.modalBody {
+  width: 90vw;
+  background-color: black;
+  z-index: 30;
+  height: 100%;
+  padding: 1em;
+}
 
+.modalBody > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalBody h2 {
+  color: #f0da98;
+  font-weight: 700;
+}
+
+.modalBody > nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  margin-top: 2em;
+}
+
+.modalBody a {
+  font-size: 1.5em;
 }
