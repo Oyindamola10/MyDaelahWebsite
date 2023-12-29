@@ -3,6 +3,8 @@
   flex-direction: column;
   gap: 1em;
   padding: 1.2em;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .cardImg2 > div {
@@ -13,6 +15,7 @@
 .cardImg2 img {
   width: 100%;
 }
+
 @media screen and (min-width: 768px) {
   .cardImg2 {
     flex-direction: row;

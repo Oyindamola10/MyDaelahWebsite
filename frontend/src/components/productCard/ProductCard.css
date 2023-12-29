@@ -1,32 +1,48 @@
-
-
-#productsId{
-    width: 267px;
-    height: 347px;
-    /* padding-left: 10px; */
-    border-radius: 10px;
+#productsId {
+  width: 267px;
+  height: 347px;
+  /* padding-left: 10px; */
+  border-radius: 10px;
 }
 
-.productlistCard{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    text-align: center;
-}
-.productlistCard:hover{
-    box-shadow: 0 10px 10px 10px rgb(0,0,0,0);
-    cursor: pointer;
-}
-.productCard{
-    padding: 45px 0;
-    padding-left: 30px;
+.productlistCard {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: auto;
+  text-align: center;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
-button:hover{
-    background-color:  #F0DA98;
-    border-radius: none;
+@media screen and (min-width: 768px) {
+  .productlistCard {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-button{
-    font-size: 28px;
-    border-radius: 5px;
+@media screen and (min-width: 1024px) {
+  .productlistCard {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1440px) {
+  .productlistCard {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.productlistCard:hover {
+  box-shadow: 0 10px 10px 10px rgb(0, 0, 0, 0);
+  cursor: pointer;
+}
+.productCard {
+  padding: 45px 0;
+  padding-left: 30px;
+}
+
+button:hover {
+  background-color: #f0da98;
+  border-radius: none;
+}
+button {
+  font-size: 28px;
+  border-radius: 5px;
 }

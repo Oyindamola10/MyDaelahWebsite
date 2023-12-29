@@ -39,7 +39,7 @@ const Home = ({ handleClick }) => {
           </div>
         </div>
         <br />
-        <h1 id="heading1">A Timepiece For All Occassions ciao</h1>
+        <h3 className="heading1">A Timepiece For All Occassions ciao</h3>
 
         <ProductList handleClick={handleClick} />
       </div>
