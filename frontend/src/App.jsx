@@ -138,7 +138,7 @@ const App = () => {
           </div>
         </footer>
 
-        {/* mobile menu here */}
+        {/* mobile menu modal here */}
         {showMobileMenu && (
           <div className={`${classes.modalParent}`}>
             <div className={classes.modalBody}>

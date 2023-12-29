@@ -26,13 +26,15 @@ const BottomNavBar = () => {
   // }
 
   return (
-    <>
+    <div style={{
+      backgroundColor: "#f0da98",
+      padding: "0.7em 0px"
+    }}>
 
-      <Navbar id="navItem3" >
+      <Navbar id="navItem3 ">
         <SideBar></SideBar>
         <Container>
-
-          <Nav className="me-auto">
+          <Nav className="me-auto hideThis">
             <Link to="/men">Men</Link>
             <Link to="/women">Women</Link>
             <Link to="/accessories">Accessories</Link>
@@ -42,7 +44,7 @@ const BottomNavBar = () => {
           <Search />
         </Container>
       </Navbar>
-    </>
+    </div>
 
   )
 }

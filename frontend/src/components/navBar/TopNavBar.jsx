@@ -91,18 +91,16 @@ const TopNavBar = ({ setShow }) => {
               <span id="size">{size}</span>
             </div>
           </nav>
-          
+
           {/* navbar here -- mobile  */}
           <nav className={`${classes.mobile}`}>
-            <div onClick={()=> setShowMobileMenu(true)}>
+            <div onClick={() => setShowMobileMenu(true)}>
               <HamburgerIcon />
             </div>
             <h2>DAELAHCOLLECTIBLES</h2>
           </nav>
         </div>
       </div>
-
-      
     </>
   );
 };
