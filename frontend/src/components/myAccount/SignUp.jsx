@@ -1,11 +1,11 @@
-import React from 'react'
 import Form from 'react-bootstrap/Form'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import {useState} from 'react'
+import {useNavigate} from 'react-router-dom';
 import './Login.css'
 
 const SignUp = () => {
-    const [signupFullname, setSignupFullname] = useState('');
+    const [signupFirstname, setSignupFirstname] = useState('');
+    const [signupLastname, setSignupLastname] = useState('');
     const [signupUsername, setSignupUsername] = useState('');
     const [signupEmail, setSignupEmail] = useState('');
     const [signupPhone, setSignupPhone] = useState('');
@@ -16,40 +16,39 @@ const SignUp = () => {
 
 
     const handleSignup = async () => {
-        // if ( !fullname || !username || !email || !phone || !password || !confirmPassword ) {
-        //     setError('Please fill out all fields.') 
-        //     return;
-        // }
-       
         console.log('Handling signup...');
+        if (signupPassword !== signupConfirmPassword){
+            alert("Please confirm your passwords are the same")
+        }
+else
         try {
-          const response = await fetch("http://localhost:8088/api/signUp", {
+          const response = await fetch("http://localhost:8088/api/register", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              fullname: signupFullname,
+              firstName: signupFirstname,
+             lastName: signupLastname,
               username: signupUsername,
               email: signupEmail,
               phone: signupPhone,
               password: signupPassword,
-              confirmPassword: signupConfirmPassword,
             }),
           });
-    
+
           const data = await response.json();
           if (data.success) {
-            alert('Signup successful. Please try again.');
-            
+            alert('Signup successful.');
+
           }
-          navigate('/login')
-        
+          //navigate('/login')
+
         } catch (error) {
           console.error('Error:', error);
         }
       };
-    
+
 
   return (
     <>
@@ -58,10 +57,19 @@ const SignUp = () => {
         <h1>DaelahCollectibles</h1>
         <h3>Create Account.</h3>
         <div>
-            <Form.Label>Fullname*</Form.Label>
-            <Form.Control id='input' size='lg' type='text' placeholder='Enter Your Fullname'
-             value={signupFullname}
-             onChange={(e) => setSignupFullname(e.target.value)}
+            <Form.Label>Firstname*</Form.Label>
+            <Form.Control id='input' size='lg' type='text' placeholder='Enter Your Firstname'
+             value={signupFirstname}
+             onChange={(e) => setSignupFirstname(e.target.value)}
+             required
+            />
+        </div>
+
+           <div>
+            <Form.Label>Lastname*</Form.Label>
+            <Form.Control id='input' size='lg' type='text' placeholder='Enter Your Lastname'
+             value={signupLastname}
+             onChange={(e) => setSignupLastname(e.target.value)}
              required
             />
         </div>
@@ -99,7 +107,7 @@ const SignUp = () => {
         </div>
         <div>
             <Form.Label>Confirm Password*</Form.Label>
-            <Form.Control id='input' size='lg' type='password' placeholder='Enter Your Password'
+            <Form.Control id='input' size='lg' type='password' placeholder='Confirm Password'
              value={signupConfirmPassword}
              onChange={(e) => setSignupConfirmPassword(e.target.value)}
              required

@@ -1,6 +1,5 @@
-import React from "react";
 // import { useState } from 'react';
-import { Routes, Route, Link } from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 // import SideBar from './components/sidebar/SideBar';
 import TopNavBar from "./components/navBar/TopNavBar";
 import BottomNavBar from "./components/navBar/BottomNavBar";
@@ -16,11 +15,11 @@ import MenList from "./components/menComp/MenList";
 import AccessoriesList from "./components/accessories/AccessoriesList";
 import CollectionList from "./components/collections/CollectionList";
 import Contact from "./components/contact/Contact";
-import { useState } from "react";
+import {useState} from "react";
 import Search from "./page/Search";
-import { useAppContext } from "./context/AppContext";
+import {useAppContext} from "./context/AppContext";
 import classes from "../src/components/navBar/topNav.module.css";
-import { XMArkIcon } from "./assets/GlobalIcons";
+import {XMArkIcon} from "./assets/GlobalIcons";
 
 const App = () => {
   const [show, setShow] = useState(true);
@@ -122,13 +121,13 @@ const App = () => {
 
             <h4 id="social">SociaL Media</h4>
             <a href="https://twitter.com/DaelahCo">
-              <i class="fa-brands fa-twitter" id="Btn3"></i>
+              <i className="fa-brands fa-twitter" id="Btn3"></i>
             </a>
             <a href="https://www.instagram.com/its_daelah/">
-              <i class="fa-brands fa-instagram" id="Btn3"></i>
+              <i className="fa-brands fa-instagram" id="Btn3"></i>
             </a>
             <a href="http://">
-              <i class="fa-brands fa-pinterest" id="Btn3"></i>
+              <i className="fa-brands fa-pinterest" id="Btn3"></i>
             </a>
             <hr />
             <h6 id="myFooter">
