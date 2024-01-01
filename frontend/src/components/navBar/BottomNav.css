@@ -1,13 +1,22 @@
-#navItem3{
-    background-color:  #F0DA98;
-    font-size: 18px;
-    /* position: fixed; */
-    /* width: 100%; */
+#navItem3 {
+  background-color: #f0da98;
+  font-size: 18px;
+  /* position: fixed; */
+  /* width: 100%; */
 }
 
 .icon {
-    font-size: 24px;
-    margin: 20px;
-    cursor: pointer;
+  font-size: 24px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.hideThis {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .hideThis {
+    display: block;
   }
-  
+}
