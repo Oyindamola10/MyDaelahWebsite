@@ -134,3 +134,18 @@ hr{
     color: black;
     padding-left: 10px;
 }
+
+#theCart{
+    padding-top: 15px;
+    /* padding-left: 10px; */
+    justify-content: center;
+}
+
+#orderLine{
+    margin-top: 10px;
+    width: 340px;
+}
+
+#subTotal{
+    color: gray;
+}

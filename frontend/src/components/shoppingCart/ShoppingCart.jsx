@@ -31,13 +31,14 @@ const ShoppingCart = ({}) => {
   return (
     <>
       <div>
-        <h3>Your Cart</h3>
+        
         <div className="parentCon">
           <div className="row">
             <div className="col-sm-12 col-md-8">
               <div>
                 {cartItems ? (
                   <div className>
+                    <h3 id="theCart">Your Cart</h3>
                     <hr id="firstLine" />
                     <div className="items">
                       <p id="item">ITEM</p>
@@ -47,7 +48,7 @@ const ShoppingCart = ({}) => {
                         <p id="total">TOTAL</p>
                       </div>
                     </div>
-
+                       <div>SUB TOTAL</div>
                     <hr id="secondLine" />
                     {cartItems.map((item) => (
                       <div>
@@ -66,19 +67,24 @@ const ShoppingCart = ({}) => {
                         </div>
                         <hr id="thirdLine" />
                       </div>
+                      
+                  
                     ))}
                   </div>
+                  
                 ) : (
                   <div style={{ background: "White", color: "Black" }}>
-                    Cart Empty
+                    <h3>Cart Empty</h3>
                   </div>
                 )}
               </div>
               <hr />
             </div>
             <div class="col-sm-12 col-md-8 otherDiv">
-              <hr />
-              <p>My name is samiat</p>
+              <hr id="orderLine" />
+               <h4>Order Summary</h4>
+               <hr id="orderLine"/>
+               <p id="subTotal">Sub Total   NGN0</p>
             </div>
           </div>
         </div>
