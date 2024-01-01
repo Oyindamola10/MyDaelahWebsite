@@ -11,6 +11,8 @@ const router = express.Router();
  * Product Endpoints
  */
 router.delete('/cart/:id',ProductController.deleteCart)
+
+router.get('/upload/multiple',ProductController.addMultipleProducts)
 //get all cart api endpoint
 router.get('/cart', async (req, res) => {
     console.log("Request body", req.body)
@@ -75,7 +77,7 @@ router.post('/cart', async (req, res) => {
 
     //handle error
     if (!cart) {
-        res.status(500).json({ error: "Error creating product" })
+        res.status(500).json({ error: "Error creating productList" })
     }
 
     //return success

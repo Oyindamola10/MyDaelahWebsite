@@ -19,7 +19,7 @@ app.use('/api', routes);
 
 app.use('/api/product', require('./routes/product'));
 
-//listen to port 
+//listen to port
 app.listen(port, () => {
     console.log(`server is runnning on port: ${port}`);
 });
