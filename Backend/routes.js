@@ -1,13 +1,12 @@
 const express = require('express');
-// import post model 
+// import post model
 const Product = require('./models/Product');
-const Cart = require('./models/Cart')
-const Login = require('./models/Login')
-const SignUp = require('./models/SignUp')
-const Contact = require('./models/Contact')
+const Cart = require('./models/Cart');
+const Contact = require('./models/Contact');
+const AuthController = require('./controllers/AuthController')
 const router = express.Router();
 
-//get all product api endpoint 
+//get all product api endpoint
 
 //get all cart api endpoint
 router.get('/cart', async (req, res) => {
@@ -21,41 +20,18 @@ router.get('/contact', async (req, res) => {
     const contact = await Contact.find();
     res.status(200).json(contact);
 })
-//get all login api endpoint
-router.get('/login', async (req, res) => {
-    console.log("Request body", req.body)
-    const login = await Login.find();
-    res.status(200).json(login);
-})
-//get all signUp api endpoint
-router.get('/signUp', async (req, res) => {
-    console.log("Request body", req.body)
-    const signUp = await SignUp.find();
-    res.status(200).json(signUp);
-})
 
-//create a new login api endpoint 
-router.post('/login', async (req, res) => {
-    //destructure request body
-    const { username, password } = req.body;
-    //create new post object
-    const login = new Login({
-        username,
-        password
-    })
+/**
+ * Authentication Endpoint
+ */
+router.post('/register', AuthController.register);
 
-    //save post
-    await login.save();
+/**
+ * Users Management Endpoints
+ */
+router.get('/users', AuthController.getAllUsers);
 
-    //handle error 
-    if (!login) {
-        res.status(500).json({ error: "Error logging in" })
-    }
-
-    //return success
-    res.status(200).json({ message: "logged in successfully", login });
-})
-//create a new contact api endpoint 
+//create a new contact api endpoint
 router.post('/contact', async (req, res) => {
     //destructure request body
     const { name, email, phone, subject, message } = req.body;
@@ -79,7 +55,7 @@ router.post('/contact', async (req, res) => {
         res.status(500).send({ error: error.message })
     }
 })
-//create a new login api endpoint 
+//create a new login api endpoint
 router.post('/login', async (req, res) => {
     //destructure request body
     const { username, password } = req.body;
@@ -92,7 +68,7 @@ router.post('/login', async (req, res) => {
     //save post
     await login.save();
 
-    //handle error 
+    //handle error
     if (!login) {
         res.status(500).json({ error: "Error logging in" })
     }
@@ -101,7 +77,7 @@ router.post('/login', async (req, res) => {
     res.status(200).json({ message: "logged in successfully", login });
 })
 
-//create a new signUp api endpoint 
+//create a new signUp api endpoint
 router.post('/signUp', async (req, res) => {
     //destructure request body
     const { fullname, username, phone, password, confirmPassword } = req.body;
@@ -117,7 +93,7 @@ router.post('/signUp', async (req, res) => {
     //save post
     await signUp.save();
 
-    //handle error 
+    //handle error
     if (!signUp) {
         res.status(500).json({ error: "Error Signing Up" })
     }
@@ -139,7 +115,7 @@ router.post('/cart', async (req, res) => {
     //save post
     await cart.save();
 
-    //handle error 
+    //handle error
     if (!cart) {
         res.status(500).json({ error: "Error creating product" })
     }
@@ -204,7 +180,7 @@ router.put('/signUp/:id', async (req, res) => {
         if (req.body.confirmPassword) {
             signUp.confirmPassword = req.body.confirmPassword;
         }
-        //save post 
+        //save post
         await signUp.save();
         res.status(200).json({ message: "Sign up updated successfully", signUp });
     } catch (error) {
