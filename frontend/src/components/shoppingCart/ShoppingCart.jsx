@@ -1,10 +1,8 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import {useEffect, useState} from "react";
 // import { useParams } from 'react-router-dom';
-
 import "./ShoppingCart.css";
 
-const ShoppingCart = ({}) => {
+const ShoppingCart = () => {
   const [cartItems, setCartItem] = useState(null);
 
   // fetch cart items
@@ -23,15 +21,32 @@ const ShoppingCart = ({}) => {
   useEffect(() => {
     fetchCartItems();
   }, []);
-  const handleRemoveItem = () => {
-    const updatedCart = cartItems.filter(item => item.id !== item);
-    setCartItem(updatedCart);
+  const handleRemoveItem = async (id) => {
+    try {
+      const requestOptions = {
+        method: "DELETE",
+        redirect: "follow",
+      };
+
+      const response = await fetch(`http://localhost:8088/api/cart/${id}`, requestOptions);
+
+      if (!response.ok) {
+        throw new Error(`Failed to remove item. Status: ${response.status}`);
+      }
+       fetchCartItems();
+
+      alert('Item removed successfully');
+    } catch (error) {
+      console.error("Error removing item:", error);
+      alert('Error removing item. Please try again.');
+    }
   };
+
 
   return (
     <>
       <div>
-        
+
         <div className="parentCon">
           <div className="row">
             <div className="col-sm-12 col-md-8">
@@ -50,28 +65,30 @@ const ShoppingCart = ({}) => {
                     </div>
                        <div>SUB TOTAL</div>
                     <hr id="secondLine" />
-                    {cartItems.map((item) => (
-                      <div>
-                        <img src={item.image} id="cartImg" />
-                        <p id="forName">{item.name}</p>
-                        <p id="forPrice">{item.price}</p>
-                        <div id="theBtn">
-                          <button type="submit" id="decrement">
-                            -
-                          </button>
-                          <p id="pNum">1</p>
-                          <button type="submit" id="increment">
-                            +
-                          </button>
-                          <button id="delete" onClick={handleRemoveItem}>Delete</button>
+                    {cartItems.map((item, index) => (
+
+                        <div key={index}>
+                          <img src={item.image} id="cartImg" alt={item.name} />
+                          <p id="forName">{item.name}</p>
+                          <p id="forPrice">{item.price}</p>
+                          <div id="theBtn">
+                            <button type="button" id="decrement">
+                              -
+                            </button>
+                            <p id="pNum">1</p>
+                            <button type="button" id="increment">
+                              +
+                            </button>
+                            <button type="button" id="delete" onClick={() => handleRemoveItem(item._id)}>
+                              Delete
+                            </button>
+                          </div>
+                          <hr id="thirdLine" />
                         </div>
-                        <hr id="thirdLine" />
-                      </div>
-                      
-                  
                     ))}
+
                   </div>
-                  
+
                 ) : (
                   <div style={{ background: "White", color: "Black" }}>
                     <h3>Cart Empty</h3>
@@ -80,7 +97,7 @@ const ShoppingCart = ({}) => {
               </div>
               <hr />
             </div>
-            <div class="col-sm-12 col-md-8 otherDiv">
+            <div className="col-sm-12 col-md-8 otherDiv">
               <hr id="orderLine" />
                <h4>Order Summary</h4>
                <hr id="orderLine"/>

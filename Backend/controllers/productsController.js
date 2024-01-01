@@ -82,7 +82,7 @@ const updateProduct = asyncHandler(async (req, res) => {
         if (req.body.price) {
             product.price = req.body.price;
         }
-        //save post 
+        //save post
         await product.save();
         res.status(200).json({ message: "Product updated successfully", product });
     } catch (error) {
@@ -106,7 +106,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
         res.status(500).json({ error: "Error deleting product" })
     }
 });
-const deleteCart = asyncHandler(async (req, res) => {
+deleteCart = asyncHandler(async (req, res) => {
     try {
         //find product
         const cart = await Cart.findById(req.params.id);

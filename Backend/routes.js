@@ -4,10 +4,13 @@ const Product = require('./models/Product');
 const Cart = require('./models/Cart');
 const Contact = require('./models/Contact');
 const AuthController = require('./controllers/AuthController')
+const ProductController = require('./controllers/productsController')
 const router = express.Router();
 
-//get all product api endpoint
-
+/**
+ * Product Endpoints
+ */
+router.delete('/cart/:id',ProductController.deleteCart)
 //get all cart api endpoint
 router.get('/cart', async (req, res) => {
     console.log("Request body", req.body)
@@ -55,52 +58,7 @@ router.post('/contact', async (req, res) => {
         res.status(500).send({ error: error.message })
     }
 })
-//create a new login api endpoint
-router.post('/login', async (req, res) => {
-    //destructure request body
-    const { username, password } = req.body;
-    //create new post object
-    const login = new Login({
-        username,
-        password
-    })
 
-    //save post
-    await login.save();
-
-    //handle error
-    if (!login) {
-        res.status(500).json({ error: "Error logging in" })
-    }
-
-    //return success
-    res.status(200).json({ message: "logged in successfully", login });
-})
-
-//create a new signUp api endpoint
-router.post('/signUp', async (req, res) => {
-    //destructure request body
-    const { fullname, username, phone, password, confirmPassword } = req.body;
-    //create new post object
-    const signUp = new SignUp({
-        fullname,
-        username,
-        phone,
-        password,
-        confirmPassword
-    })
-
-    //save post
-    await signUp.save();
-
-    //handle error
-    if (!signUp) {
-        res.status(500).json({ error: "Error Signing Up" })
-    }
-
-    //return success
-    res.status(200).json({ message: "Signed up successfully", signUp });
-})
 //Cart end point
 router.post('/cart', async (req, res) => {
     //destructure request body
@@ -135,58 +93,6 @@ router.get('/cart/:id', async (req, res) => {
     res.status(200).json({ message: "Cart found", postData: Cart });
 })
 //get signUp data
-router.get('/signUp/:id', async (req, res) => {
-    //find post
-    const signUp = await SignUp.findById(req.params.id);
-
-    //handle error
-    if (!signUp) {
-        res.status(500).json({ error: "SignUp  failed" });
-    }
-    res.status(200).json({ message: "sign up successful", postData: SignUp });
-})
-//get login data
-router.get('/login/:id', async (req, res) => {
-    //find post
-    const login = await Login.findById(req.params.id);
-
-    //handle error
-    if (!login) {
-        res.status(500).json({ error: "login failed" });
-    }
-    res.status(200).json({ message: "log insuccessful", postData: Login });
-})
-
-//update signup
-router.put('/signUp/:id', async (req, res) => {
-    try {
-        //find signUp
-        const signUp = await SignUp.findById(req.params.id);
-        if (req.body.fullname) {
-            signUp.fullname = req.body.fullname;
-        }
-        if (req.body.username) {
-            signUp.username = req.body.username;
-        }
-        if (req.body.email) {
-            signUp.email = req.body.email;
-        }
-        if (req.body.phone) {
-            signUp.phone = req.body.phone;
-        }
-        if (req.body.password) {
-            signUp.password = req.body.password;
-        }
-        if (req.body.confirmPassword) {
-            signUp.confirmPassword = req.body.confirmPassword;
-        }
-        //save post
-        await signUp.save();
-        res.status(200).json({ message: "Sign up updated successfully", signUp });
-    } catch (error) {
-        res.status(500).json({ error: "Error updating signUp" });
-    }
-});
 
 
 // export router
