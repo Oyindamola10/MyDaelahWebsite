@@ -1,9 +1,9 @@
-const { createProduct, getProducts, updateProduct, deleteProduct, searchProduct, addMutiples, createCart,getCart,deleteCart} = require('../controllers/productsController');
+const { createProduct, getProducts, updateProduct, deleteProduct, searchProduct, createCart,getCart,deleteCart} = require('../controllers/productsController');
 
 const router = require('express').Router();
 
 router.post('/', createProduct);
-router.post('/multiples', addMutiples);
+// router.post('/multiples', addMultiples);
 router.post('/', createCart);
 router.get('/', getCart)
 router.get('/', getProducts);

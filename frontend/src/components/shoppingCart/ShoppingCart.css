@@ -1,3 +1,7 @@
+.parentCon{
+    padding: 20px;
+}
+
 #cartImg{
     width: 125px;
     height: 135px;
@@ -78,7 +82,7 @@ hr{
     align-items: center;
     text-align: center;
     position: relative;
-    bottom: 130px;
+    bottom: 170px;
     left: 590px;
 }
 
@@ -125,10 +129,9 @@ hr{
 
 #forPrice{
     color: black;
-    padding-left: 10px;
     position: relative;
-    bottom: 80px;
-    left: 365px;
+    bottom: 125px;
+    padding-left: 490px;
 }
 #forName{
     color: black;
@@ -141,8 +144,12 @@ hr{
     justify-content: center;
 }
 
-#orderLine{
-    margin-top: 10px;
+#orderLine1{
+    margin-top: 117px;
+    width: 340px;
+}
+#orderLine2{
+    /* margin-top: 55px; */
     width: 340px;
 }
 

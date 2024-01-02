@@ -63,7 +63,7 @@ const ShoppingCart = () => {
                         <p id="total">TOTAL</p>
                       </div>
                     </div>
-                       <div>SUB TOTAL</div>
+                       
                     <hr id="secondLine" />
                     {cartItems.map((item, index) => (
 
@@ -84,7 +84,10 @@ const ShoppingCart = () => {
                             </button>
                           </div>
                           <hr id="thirdLine" />
+                          {/* <div>SUB TOTAL</div> */}
+                         
                         </div>
+                        
                     ))}
 
                   </div>
@@ -98,9 +101,9 @@ const ShoppingCart = () => {
               <hr />
             </div>
             <div className="col-sm-12 col-md-8 otherDiv">
-              <hr id="orderLine" />
+              <hr id="orderLine1" />
                <h4>Order Summary</h4>
-               <hr id="orderLine"/>
+               <hr id="orderLine2"/>
                <p id="subTotal">Sub Total   NGN0</p>
             </div>
           </div>

@@ -2,7 +2,7 @@
 const asyncHandler = require('express-async-handler');
 const Product = require('../models/Product');
 const Cart = require('../models/Cart')
-const productList = require("../productList");
+// const productList = require("../productList");
 
 
 //@desc create a productList
