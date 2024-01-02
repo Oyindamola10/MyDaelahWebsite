@@ -7,12 +7,13 @@ const AuthController = require('./controllers/AuthController')
 const ProductController = require('./controllers/productsController')
 const router = express.Router();
 
+
 /**
  * Product Endpoints
  */
-router.delete('/cart/:id',ProductController.deleteCart)
 
-router.get('/upload/multiple',ProductController.addMultipleProducts)
+
+// router.get('/upload/multiple',ProductController.addMultipleProducts)
 //get all cart api endpoint
 router.get('/cart', async (req, res) => {
     console.log("Request body", req.body)
@@ -62,38 +63,38 @@ router.post('/contact', async (req, res) => {
 })
 
 //Cart end point
-router.post('/cart', async (req, res) => {
-    //destructure request body
-    const {name, image,price} = req.body;
-    //create new post object
-    const cart = new Cart({
-        name,
-        price,
-        image
-    })
+// router.post('/cart', async (req, res) => {
+//     //destructure request body
+//     const {name, image,price} = req.body;
+//     //create new post object
+//     const cart = new Cart({
+//         name,
+//         price,
+//         image
+//     })
 
-    //save post
-    await cart.save();
+//     //save post
+//     await cart.save();
 
-    //handle error
-    if (!cart) {
-        res.status(500).json({ error: "Error creating productList" })
-    }
+//     //handle error
+//     if (!cart) {
+//         res.status(500).json({ error: "Error creating productList" })
+//     }
 
-    //return success
-    res.status(200).json({ message: "Cart created successfully", cart });
-})
+//     //return success
+//     res.status(200).json({ message: "Cart created successfully", cart });
+// })
 //get cart data
-router.get('/cart/:id', async (req, res) => {
-    //find post
-    const cart = await Cart.find(req.params.id);
+// router.get('/cart/:id', async (req, res) => {
+//     //find post
+//     const cart = await Cart.find(req.params.id);
 
-    //handle error
-    if (!cart) {
-        res.status(500).json({ error: "Cart not found" });
-    }
-    res.status(200).json({ message: "Cart found", postData: Cart });
-})
+//     //handle error
+//     if (!cart) {
+//         res.status(500).json({ error: "Cart not found" });
+//     }
+//     res.status(200).json({ message: "Cart found", postData: Cart });
+// })
 //get signUp data
 
 
