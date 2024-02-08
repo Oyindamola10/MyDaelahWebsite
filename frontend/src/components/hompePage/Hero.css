@@ -1,0 +1,10 @@
+.hero{
+    position: relative;
+}
+#Btn{
+    background-color:  #F0DA98;
+    border: none;
+    position: absolute;
+    bottom: 40px;
+    right: 50%;
+}

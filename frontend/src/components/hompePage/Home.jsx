@@ -1,17 +1,18 @@
 import ProductList from "../productCard/ProductList";
-import CarouselCom from "./Carousel";
+// import CarouselCom from "./Carousel";
+import Hero from "./Hero";
 // import Button from 'react-bootstrap/Button';
-// import "./Home.css";
+import "./Home.css";
 // import ShopNowButton from '../ShopNowButton';
-import classes from "./home.module.css";
+
 
 const Home = ({ handleClick }) => {
   return (
     <>
       <div className="myHome">
-        <CarouselCom />
+        <Hero/>
 
-        <div className={classes.cardImg2}>
+        <div className="cardImg2">
           <div>
             <img
               src="https://i.imgur.com/o94hbEM.png"
@@ -39,7 +40,7 @@ const Home = ({ handleClick }) => {
           </div>
         </div>
         <br />
-        <h3 className="heading1">A Timepiece For All Occassions ciao</h3>
+        <h3 className="heading1">A Timepiece For All Occassions</h3>
 
         <ProductList handleClick={handleClick} />
       </div>

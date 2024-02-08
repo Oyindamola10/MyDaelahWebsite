@@ -1,0 +1,9 @@
+.theBlog{
+  padding-left: 24px;
+  padding-top: 15px;
+}
+
+#theText{
+    color: gray;
+    font-style: unset;
+}

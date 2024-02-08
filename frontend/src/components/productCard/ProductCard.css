@@ -14,21 +14,7 @@
   margin: 0 auto;
 }
 
-@media screen and (min-width: 768px) {
-  .productlistCard {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media screen and (min-width: 1024px) {
-  .productlistCard {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media screen and (min-width: 1440px) {
-  .productlistCard {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
+
 .productlistCard:hover {
   box-shadow: 0 10px 10px 10px rgb(0, 0, 0, 0);
   cursor: pointer;
@@ -55,4 +41,8 @@ button {
 }
 #theProduct2{
     color: black;
+}
+
+.productCarousel{
+  display: flex;
 }

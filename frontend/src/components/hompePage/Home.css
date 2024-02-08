@@ -3,15 +3,15 @@
     color:  #F0DA98;
 }
 #watch1{
-    width: 498px;
-    height: 433px;
+    width: 468px;
+    height: 453px;
     /* padding-left: 60px; */
     /* margin: 25px; */
     /* padding-right: 10px; */
 }
 #watch2{
-    width: 498px;
-    height: 433px;
+    width: 468px;
+    height: 453px;
     /* padding-left: 75px; */
     
     /* margin: 25px; */
@@ -36,12 +36,16 @@
 } 
 
 #btn3{
-    width: 157px;
-    height: 69px;
+    width: 127px;
+    height: 39px;
+    position: relative;
+    bottom: 85px;
+    left: 316px;
     border: none;
+    justify-content: center;
     border-radius: 10px;
     background-color:  #F0DA98;
-    color: #fff;
+    /* color: #fff; */
     font-size: 20px;
 }
 .gridImg{
@@ -59,9 +63,10 @@
     
 }
 
-#heading1{
+.heading1{
     text-align: center;
+    /* padding-left: 24px; */
     padding-top: 65px;
-    color:  #F0DA98;
+    color: black;
 }
 

@@ -1,7 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Form from 'react-bootstrap/Form';
-import SideBar from '../sidebar/SideBar';
+
 // import useState from 'react'
 import Navbar from 'react-bootstrap/Navbar';
 import "./BottomNav.css"
@@ -32,7 +31,7 @@ const BottomNavBar = () => {
     }}>
 
       <Navbar id="navItem3 ">
-        <SideBar></SideBar>
+        {/* <SideBar></SideBar> */}
         <Container>
           <Nav className="me-auto hideThis">
             <Link to="/men">Men</Link>

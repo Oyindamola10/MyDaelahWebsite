@@ -1,5 +1,6 @@
 import React from 'react'
 import Men from './Men'
+// import product from '../../product'
 import './Men.css'
 
 const MenList = ({handleClick}) => {
@@ -64,11 +65,11 @@ const MenList = ({handleClick}) => {
       ]
   return (
     <div className='menCard'>
-         { men.map(({name,Price,image},id) =>(
+         { men.map(({name,price,image},id) =>(
          <Men 
          key={id}
          name={name}
-         price={Price}
+         price={price}
          image={image}
          handleClick={handleClick}
          />))}

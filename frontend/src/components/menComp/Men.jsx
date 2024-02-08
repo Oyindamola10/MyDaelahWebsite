@@ -1,10 +1,16 @@
 import React from "react";
 import "./Men.css";
 import { useAppContext } from "../../context/AppContext";
+import addProductToCart from "../productCard/addProductToCart";
 
-const Men = ({ image, name, price, }) => {
+const Men = ({name, price, image }) => {
+  // const { name, price, image } = item;
   const { incrCart } = useAppContext();
 
+  const handleAddToCart = () => {
+    incrCart();
+    addProductToCart(item);
+  }
   return (
     <div>
       <div className="cardMen">
@@ -12,14 +18,14 @@ const Men = ({ image, name, price, }) => {
           <img src={image} alt="Vc silver" id="img2" />
           <h6>{name}</h6>
           <h6>{price}</h6>
-          <p>Ships in 24hrs</p>
-          <span className="fa fa-star checked"></span>
+          <p id="theShip">Ships in 24hrs</p>
+          {/* <span className="fa fa-star checked"></span>
           <span className="fa fa-star checked"></span>
           <span className="fa fa-star checked"></span>
           <span className="fa fa-star"></span>
-          <span className="fa fa-star"></span>
+          <span className="fa fa-star"></span> */}
           <div>
-            <button onClick={() => incrCart()} >Add To Cart</button>
+            <button onClick={() => handleAddToCart()} >Add To Cart</button>
 
           </div>
         </div>

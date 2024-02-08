@@ -17,9 +17,12 @@ import CollectionList from "./components/collections/CollectionList";
 import Contact from "./components/contact/Contact";
 import {useState} from "react";
 import Search from "./page/Search";
+// import CheckOutPage from "./page/CheckOutPage"
 import {useAppContext} from "./context/AppContext";
-import classes from "../src/components/navBar/topNav.module.css";
+// import classes from "../src/components/navBar/topNav.module.css";
 import {XMArkIcon} from "./assets/GlobalIcons";
+import Blog from "./components/blog/Blog";
+import CheckOutPage from "./page/CheckOutPage";
 
 const App = () => {
   const [show, setShow] = useState(true);
@@ -53,7 +56,7 @@ const App = () => {
     setCart([...tempArr]);
   };
 
-  const { cartNo: size, showMobileMenu, setShowMobileMenu } = useAppContext();
+  const { cartNo:  showMobileMenu, setShowMobileMenu } = useAppContext();
 
   return (
     <>
@@ -67,9 +70,7 @@ const App = () => {
           <BottomNavBar></BottomNavBar>
         </header>
         <main>
-          {/* <SideBar></SideBar> */}
-          {/* <Router> */}
-          {/* <CartProvider> */}
+        
           <Routes>
             <Route path="/" element={<Home handleClick={handleClick} />} /> :
             <Route path="/about" element={<AboutUs />} />
@@ -102,7 +103,9 @@ const App = () => {
               element={<CollectionList handleClick={handleClick} />}
             />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/search/:id" element={<Search />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/blog" element={<Blog/>}/>
+            <Route path="/checkout" element={<CheckOutPage/>}/>
           </Routes>
 
           {warning && (
@@ -123,7 +126,7 @@ const App = () => {
             <a href="https://twitter.com/DaelahCo">
               <i className="fa-brands fa-twitter" id="Btn3"></i>
             </a>
-            <a href="https://www.instagram.com/its_daelah/">
+            <a href="https://www.instagram.com/_daelahco/">
               <i className="fa-brands fa-instagram" id="Btn3"></i>
             </a>
             <a href="http://">
@@ -137,35 +140,8 @@ const App = () => {
           </div>
         </footer>
 
-        {/* mobile menu modal here */}
-        {showMobileMenu && (
-          <div className={`${classes.modalParent}`}>
-            <div className={classes.modalBody}>
-              <div>
-                <h2>DAELAHCOLLECTIBLES</h2>
-                <div onClick={()=> setShowMobileMenu(false)}>
-                  <XMArkIcon />
-                </div>
-              </div>
-
-              <nav>
-                <Link to="/" id="myLink">
-                  Home
-                </Link>
-                <Link to="/about" id="myLink">
-                  About Us
-                </Link>
-                {/* <Link to="/SignUp" id='myLink'>My Account</Link> */}
-                <Link to="/contact" id="myLink">
-                  Contact Us
-                </Link>
-                <Link to="/blog" id="myLink">
-                  Blog
-                </Link>
-              </nav>
-            </div>
-          </div>
-        )}
+       
+       
       </div>
     </>
   );

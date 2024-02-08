@@ -22,6 +22,9 @@ hr{
   position: absolute;
   top: 139px;
   left: 875px;
+  /* border: 1px solid gray;
+  height: 315px;
+  width: 373px; */
 }
 .items{
     display: flex;
@@ -155,4 +158,15 @@ hr{
 
 #subTotal{
     color: gray;
+}
+
+.proceedBtn{
+    position: absolute;
+    left: 867px;
+    padding-top: 190px;
+    /* bottom: 2px; */
+}
+#Pbtn{
+    border: 1px solid gray;
+    height: 26px;
 }

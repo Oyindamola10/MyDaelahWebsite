@@ -6,7 +6,8 @@ const addProductToCart = (product) => {
     const raw = JSON.stringify({
     "image": product.image,
     "name": product.name,
-    "price": product.Price
+    "price": product.price,
+    "quantity":product.quantity
     });
 
     const requestOptions = {

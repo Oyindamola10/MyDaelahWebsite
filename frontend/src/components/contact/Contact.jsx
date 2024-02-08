@@ -12,8 +12,8 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
+  const handleFormSubmit = async () => {
+    // e.preventDefault();
 
     console.log('handle.....')
 
@@ -60,7 +60,7 @@ const Contact = () => {
               </div>
               <div className="contact-item">
                 <i className="fa fa-phone" id="myIcon" />
-                <p>08176919801</p>
+                <p id="myNum">08176919801</p>
               </div>
               <div className="contact-item">
                 <i class="fa fa-envelope" id="myIcon" />
@@ -76,7 +76,7 @@ const Contact = () => {
               </p>
             </div>
             <div>
-              <Form onSubmit={(e) => handleFormSubmit(e)}>
+              <Form onSubmit={handleFormSubmit}>
                 <div>
                 <Form.Group
                   className="mb-3"
@@ -146,14 +146,15 @@ const Contact = () => {
                  required
                  name="Select File"/>
                  </div> 
-              </Form>
-                
-            </div>
-             <div className="btn-submit">
+                 <div className="btn-submit">
                 <button type="submit" id="btnSub" 
                 
                 >Submit File</button>
              </div>
+              </Form>
+                
+            </div>
+            
           </div>
         </div>
       </div>

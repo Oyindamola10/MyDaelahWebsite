@@ -10,11 +10,11 @@ const Collection = ({name, price, image,handleClick}) => {
   return (
     <>
       <div className="collectionCard">
-        <div>
+        <div className='theCollection'>
           <img src={image} alt="collections" id="collectionImg" />
           <h6>{name}</h6>
           <h6>{price}</h6>
-          <p>Ships in 24hrs</p>
+          <p id='theShip'>Ships in 24hrs</p>
           <span className="fa fa-star checked"></span>
           <span className="fa fa-star checked"></span>
           <span className="fa fa-star checked"></span>

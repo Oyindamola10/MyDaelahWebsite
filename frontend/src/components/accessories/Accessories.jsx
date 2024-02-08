@@ -6,11 +6,11 @@ const Accessories = ({image, name, price,handleClick}) => {
   return (
     <>
         <div className="accessoriesCard">
-        <div>
+        <div className='myAccessories'>
           <img src={image} alt="accessories" id="accessoriesCard2" />
           <h6>{name}</h6>
           <h6>{price}</h6>
-          <p>Ships in 24hrs</p>
+          <p id='theShip'>Ships in 24hrs</p>
           <span className="fa fa-star checked"></span>
           <span className="fa fa-star checked"></span>
           <span className="fa fa-star checked"></span>

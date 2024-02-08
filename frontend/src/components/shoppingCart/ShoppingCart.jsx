@@ -1,10 +1,20 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 // import { useParams } from 'react-router-dom';
 import "./ShoppingCart.css";
+import { useNavigate } from "react-router-dom";
+import CartItem from "./CartItem";
 
 const ShoppingCart = () => {
-  const [cartItems, setCartItem] = useState(null);
+  const [cartItems, setCartItem] = useState([]);
 
+  const navigate = useNavigate();
+
+  //subtotal function
+  const calculateTotal = () => {
+    console.log(cartItems)
+    return cartItems.reduce((total, item) => Number(total) + Number(item.price) * Number(item.quantity), 0);
+  };
+ 
   // fetch cart items
   const fetchCartItems = () => {
     const requestOptions = {
@@ -18,35 +28,16 @@ const ShoppingCart = () => {
       .catch((error) => console.log("error", error));
   };
 
+  // console.log(cartItems)
+
   useEffect(() => {
     fetchCartItems();
   }, []);
-  const handleRemoveItem = async (id) => {
-    try {
-      const requestOptions = {
-        method: "DELETE",
-        redirect: "follow",
-      };
-
-      const response = await fetch(`http://localhost:8088/api/cart/${id}`, requestOptions);
-
-      if (!response.ok) {
-        throw new Error(`Failed to remove item. Status: ${response.status}`);
-      }
-       fetchCartItems();
-
-      alert('Item removed successfully');
-    } catch (error) {
-      console.error("Error removing item:", error);
-      alert('Error removing item. Please try again.');
-    }
-  };
 
 
   return (
     <>
       <div>
-
         <div className="parentCon">
           <div className="row">
             <div className="col-sm-12 col-md-8">
@@ -63,48 +54,35 @@ const ShoppingCart = () => {
                         <p id="total">TOTAL</p>
                       </div>
                     </div>
-                       
+
                     <hr id="secondLine" />
-                    {cartItems.map((item, index) => (
-
-                        <div key={index}>
-                          <img src={item.image} id="cartImg" alt={item.name} />
-                          <p id="forName">{item.name}</p>
-                          <p id="forPrice">{item.price}</p>
-                          <div id="theBtn">
-                            <button type="button" id="decrement">
-                              -
-                            </button>
-                            <p id="pNum">1</p>
-                            <button type="button" id="increment">
-                              +
-                            </button>
-                            <button type="button" id="delete" onClick={() => handleRemoveItem(item._id)}>
-                              Delete
-                            </button>
-                          </div>
-                          <hr id="thirdLine" />
-                          {/* <div>SUB TOTAL</div> */}
-                         
-                        </div>
-                        
+                    {cartItems.map((item) => (
+                      <CartItem
+                      key={item._id}
+                      item={item}
+                      fetchCartItems={fetchCartItems} />
                     ))}
-
                   </div>
-
                 ) : (
                   <div style={{ background: "White", color: "Black" }}>
                     <h3>Cart Empty</h3>
                   </div>
                 )}
               </div>
+              <div>
+                <h4>SUB TOTAL:</h4>
+              </div>
               <hr />
             </div>
             <div className="col-sm-12 col-md-8 otherDiv">
               <hr id="orderLine1" />
-               <h4>Order Summary</h4>
-               <hr id="orderLine2"/>
-               <p id="subTotal">Sub Total   NGN0</p>
+              <h4>Order Summary</h4>
+              <hr id="orderLine2" />
+              <p id="subTotal">Total: NGN{calculateTotal()}</p>
+
+            </div>
+            <div className="proceedBtn">
+              <button id="Pbtn" onClick={()=>navigate("/checkout")}>PROCEED TO CHECKOUT</button>
             </div>
           </div>
         </div>
